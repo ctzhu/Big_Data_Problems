@@ -35,16 +35,19 @@ Misc small projects goes here:
 * HuiLi_Stat_Analysis
 
     ANOVA models for Huili's split block experiment design
+    
 ---
     
 * CSE_All_Genotypes
 
     Motion detection and image analysis for cigarette smoke extract treated animals.
+
 ---
     
 * Sleep
 
     GWAS, EWAS analysis for Illumina 450k methylation chip,  sleep defect study.
+
 ---
     
 * Option analysis with `Python` (split strike strategy)
