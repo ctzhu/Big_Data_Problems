@@ -53,3 +53,6 @@ Misc small projects goes here:
 * Option analysis with `Python` (split strike strategy)
 
     Option trading analysis using `pandas` `matplotlib`, and `spicy`
+
+---
+* Slides for teaching decision tree.
