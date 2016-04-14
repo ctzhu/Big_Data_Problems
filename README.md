@@ -55,4 +55,4 @@ Misc small projects goes here:
     Option trading analysis using `pandas` `matplotlib`, and `spicy`
 
 ---
-* Slides for teaching decision tree.
+* [Slides for teaching decision tree.](http://htmlpreview.github.io/?https://github.com/ctzhu/Big_Data_Problems/blob/master/Decision_Tree_Sample_Teaching.slides.html)
