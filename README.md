@@ -58,4 +58,4 @@ Misc small projects goes here:
 * [Slides for teaching decision tree.](http://htmlpreview.github.io/?https://github.com/ctzhu/Big_Data_Problems/blob/master/Decision_Tree_Sample_Teaching.slides.html)
 
 ---
-* [`Rpy2` introduction slides](http://htmlpreview.github.io/?https://github.com/ctzhu/Big_Data_Problems/blob/master/Rpy2_intro.slides.html#/)
+* [`Rpy2` introduction slides](http://htmlpreview.github.io/?https://raw.githubusercontent.com/ctzhu/Big_Data_Problems/master/Rpy2_intro.slides.html#/)
