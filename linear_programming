@@ -1,0 +1,47 @@
+ntag = 800
+nhub = 150
+
+tags = np.random.normal(size=(ntag, 2))*3
+hubs = np.random.normal(size=(nhub, 2))*2
+tags_m = np.repeat(np.eye(nhub), ntag, axis=0)
+hubs_m = np.tile(np.eye(ntag), (nhub, 1))
+
+dist = np.sqrt(np.power(np.diff(np.dstack(np.meshgrid(hubs[:,0],
+                                                      tags[:,0])),
+                                          axis=2).ravel(),
+                        2) +
+               np.power(np.diff(np.dstack(np.meshgrid(hubs[:,1],
+                                                      tags[:,1])),
+                                          axis=2).ravel(),
+                        2)
+               )
+               
+
+pd.DataFrame(tags_m).to_csv('lpsolve_tags.csv', index=None)
+pd.DataFrame(hubs_m).to_csv('lpsolve_hubs.csv', index=None)
+pd.DataFrame(dist).to_csv('lpsolve_dist.csv', index=None)
+
+
+tags_m = read.csv('lpsolve_tags.csv')
+hubs_m = read.csv('lpsolve_hubs.csv')
+dist   = read.csv('lpsolve_dist.csv')
+hubs_n = dim(tags_m)[[2]]
+tags_n = dim(tags_m)[[1]] / hubs_n
+size   = dim(tags_m)[[1]]
+lprec  = make.lp(0, size)
+set.objfn(lprec, as.numeric(as.vector(dist[[1]])))
+for(i in (1:tags_n)){
+  add.constraint(lprec, hubs_m[[i]], "<=", 120.1)
+}
+
+for(i in (1:hubs_n)){
+  add.constraint(lprec, tags_m[[i]], "=", 1)
+}
+for(i in (1:size)){
+  set.bounds(lprec, lower=0, upper=1, columns=i)
+}
+print(Sys.time())
+solve(lprec)
+print(Sys.time())
+solution = matrix(get.variables(lprec), nrow=hubs_n, ncol=tags_n, byrow=T)
+# colSums(solution) should match get.constraints(lprec)
